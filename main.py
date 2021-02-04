@@ -47,7 +47,8 @@ def book_scrapping(url_book):
             replace('../../', '')
 
         response_image = requests.get(image_url)
-        file = open(title[:128].replace('/', '').replace(':', '').replace('"', '') + '.jpg', 'wb')  # w:write, b:binary
+        file = open(title[:128].replace('/', '').replace(':', '').replace('"', '').replace('*', '').replace('?', '')
+                    + '.jpg', 'wb')  # w:write, b:binary
         file.write(response_image.content)
         file.close()
 
